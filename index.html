@@ -86,7 +86,7 @@
                                 <div class="card_icon_3"><img src="./img/operation-icon3.png" alt=""></div>
                                 <div class="card_desc">
                                     <div class="desc_title">精準助攻，全方位行銷</div>
-                                    <div class="desc_subtitle">提供全方位行銷工具，助您精準觸及目標客群，有效驅動營收成長。</div>
+                                    <div class="desc_subtitle">提供全方位行銷工具，幫助您精準觸及目標客群，有效驅動營收成長。</div>
                                 </div>
                             </div>
                             <div class="operation_card_4" data-aos="fade-left">
@@ -179,7 +179,8 @@
                         <div class="business_title">MyCard不只在台灣，還陪你走向全世界</div>
                         <div class="business_desc">無論您的目標客戶身在何處，我們都能提供最符合當地習慣的支付服務，助您輕鬆實現全球化佈局。</div>
                         <div class="business_map">
-                            <img src="./img/business_image.png" alt="">
+                            <img class="busy_map_1" src="./img/business_image.png" alt="">
+                            <img class="busy_map_2" src="./img/business_image_mobile.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -188,7 +189,7 @@
         <div class="workflow_region">
             <div class="workflow_inner">
                 <div class="workflow_desc">
-                    <div class="worktitle">四步驟輕鬆搞定串接</div>
+                    <div class="worktitle">開通流程</div>
                     <div class="workdesc">一對一專人服務，為您打造最適合的支付方案！讓您快速無縫上線，順利開跑！</div>
                 </div>
                 <div class="workorder" data-aos="fade-left">
@@ -227,7 +228,15 @@
             <div class="contact_bg"></div>
             <div class="contact_info">
                 <div class="contact_desc">馬上聯絡MyCard，為公司開拓市場並增加營收。</div>
-                <div class="contact_button"><a href=""><img src="./img/Button-Large.png" alt=""></a></div>
+                <div class="contact_form">
+                    <form class="form_desc" action="" method="post">
+                        <input class="column_1" type="text" placeholder="姓氏">
+                        <input class="column_2" type="text" placeholder="名字">
+                        <input class="column_3" type="mail" placeholder="EMAIL">
+                        <input class="column_4" type="submit" value="送出">
+                    </form>
+                </div>
+                <!-- <div class="contact_button"><a href=""><img src="./img/Button-Large.png" alt=""></a></div> -->
             </div>
         </div>
     </div>
@@ -237,37 +246,80 @@
      AOS.init({
      duration: 600, // 動畫持續時間（毫秒）
      easing: 'ease-in-out', // 動畫加速度曲線
-     once: false, // 是否只執行一次（false = 重複觸發）
+     once: true, // 是否只執行一次（false = 重複觸發）
      mirror: true // 捲動回上方時也重播動畫
      });
     </script>
 
+
+
     <!-- 數字計算的js -->
      <script>
-     $(document).ready(function() {
-     // 自訂一個可重複使用的數字遞增動畫函式
-      function animateCounter($el, target, duration) {
+$(document).ready(function () {
+  // ✅ 數字遞增動畫函式
+  function animateCounter($el, target, duration) {
     $({ countNum: 0 }).animate(
       { countNum: target },
       {
         duration: duration,
         easing: 'swing',
-        step: function() {
+        step: function () {
           $el.text(Math.floor(this.countNum));
         },
-        complete: function() {
+        complete: function () {
           $el.text(this.countNum.toLocaleString()); // 自動加千分位
         }
       }
     );
   }
 
-  // 初始化所有數字動畫
-  animateCounter($("#people"), 1000, 2000);     // 2秒內 0→1000
-  animateCounter($("#social"), 148, 2000);
-  animateCounter($("#found"), 1982, 2000);
-  animateCounter($("#paystyle"), 200, 2000);
+  // ✅ 設定旗標避免重複觸發動畫
+  let hasAnimated = false;
+
+  // ✅ 當頁面滾動時偵測 counter_region 是否進入畫面
+  $(window).on("scroll", function () {
+    // 取得目前卷軸高度與視窗高度
+    const scrollTop = $(window).scrollTop();
+    const windowHeight = $(window).height();
+    // 取得 counter_region 距離文件頂端的位置
+    const counterTop = $(".counter_region").offset().top;
+
+    // 如果卷軸進入該區塊，且尚未執行過動畫
+    if (!hasAnimated && scrollTop + windowHeight > counterTop + 100) {
+      hasAnimated = true; // 避免重複執行
+      // ✅ 執行所有數字動畫
+      animateCounter($("#people"), 1000, 2000);
+      animateCounter($("#social"), 148, 2000);
+      animateCounter($("#found"), 1983, 2000);
+      animateCounter($("#paystyle"), 200, 2000);
+    }
+  });
 });
+</script>
+
+
+
+<!-- 商業地圖切換，等找到套件之後，html區快要重寫，js就去除掉 -->
+<script>
+function updateMapImage() {
+  const width = window.innerWidth;
+  const map1 = document.querySelector('.busy_map_1');
+  const map2 = document.querySelector('.busy_map_2');
+
+  if (width > 550) {
+    map1.style.display = 'block';
+    map2.style.display = 'none';
+  } else {
+    map1.style.display = 'none';
+    map2.style.display = 'block';
+  }
+}
+
+// 頁面載入時執行一次
+updateMapImage();
+
+// 視窗縮放時重新檢查
+window.addEventListener('resize', updateMapImage);
 </script>
 
 </body>

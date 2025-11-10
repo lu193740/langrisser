@@ -229,7 +229,7 @@
             <div class="contact_info">
                 <div class="contact_desc">馬上聯絡MyCard，為公司開拓市場並增加營收。</div>
                 <div class="contact_form">
-                    <form class="form_desc" action="https://script.google.com/macros/s/AKfycbzlmbLjrkZY6sydjfN1Ii2KZ6oRz6nKMs03Dk83hO5f09L5rs3EPFNtr-p1AKj2awVl/exec" method="post">
+                    <form id="list_form" class="form_desc" >
                         <input id="surname" name="surname" class="column_1" type="text" placeholder="姓氏">
                         <input id="lastname" name="lastname" class="column_2" type="text" placeholder="名字">
                         <input id="email" name="email" class="column_3" type="mail" placeholder="EMAIL">
@@ -320,6 +320,28 @@ updateMapImage();
 
 // 視窗縮放時重新檢查
 window.addEventListener('resize', updateMapImage);
+</script>
+
+<script>
+    const form = document.getElementById("list_form");
+    form.addEventListener("submit", (e) => {
+    e.preventDefault(); // 防止重整頁面
+    const formData = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbzXgQqKM_rFItQ0AFjquvCMwVU733clnTNZi89tV4wb6jDxjf-7l5JVisN_rDRjFKp36g/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.text())
+    .then(msg => {
+      alert("資料已成功送出！");
+      form.reset(); // 清空表單
+    })
+    .catch(err => {
+      console.error(err);
+      alert("送出失敗，請稍後再試");
+    });
+  });
 </script>
 
 </body>

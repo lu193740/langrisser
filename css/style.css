@@ -732,7 +732,6 @@ body{
 .workflow_region .workflow_inner{
     display: flex;
     justify-content: center;
-    gap: 120px;
 }
 
 .workflow_region .workflow_inner .workflow_desc{
@@ -741,6 +740,7 @@ body{
     max-width: 560px;
     /* text-align: center; */
     align-content: center;
+    margin-right: 30px;
 }
 
 .workflow_region .workflow_inner .workflow_desc .worktitle{

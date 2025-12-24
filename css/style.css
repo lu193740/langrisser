@@ -179,7 +179,7 @@ body{
 /* Banner的css樣式設置 開始*/
 .main .big_banner{
     width: 100%;
-    height: 800px;
+    height: 100vh;
     /* border: 1px solid red; */
 }
 
@@ -283,7 +283,7 @@ body{
 @media(max-width:576px){
     .main .big_banner{
     width: 100%;
-    height: 800px;
+    height: 100vh;
     /* border: 1px solid red; */
 }
 
@@ -340,7 +340,7 @@ body{
 }
 
 .main .big_banner .bigbanner_outer .bigbanner_inner .banner_region .banner_pushbtn .pushbtn_inner_1{
-    width: 60%;
+    width: 100%;
 }
 
 .main .big_banner .bigbanner_outer .bigbanner_inner .banner_region .banner_pushbtn .pushbtn_inner_1 a img{
@@ -349,7 +349,7 @@ body{
 
 .main .big_banner .bigbanner_outer .bigbanner_inner .banner_region .banner_pushbtn .pushbtn_inner_2{
     width: 40%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: right;
 }
@@ -797,7 +797,8 @@ body{
 .main .market_info .market_info_outer .market_info_inner .market_desc .market_icon{
     /* border: 1px solid red; */
     width: auto;
-    height: -webkit-fill-available;
+    height: auto;
+    align-self: start;
     margin-right: 10px;
 }
 
@@ -2956,6 +2957,7 @@ body{
 
 .main .security_solution .security_solution_outer .security_solution_inner .solution_region .region_desc .solution_title{
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-bottom: 32px;
     margin-top: 32px;
@@ -2974,14 +2976,14 @@ body{
     font-weight: 600;
     color: #ffffff;
     text-shadow: 0 0 5px #f9f9f9, 0 0 15px #e4e4e4;
-    width: 100%;
+    width: 70%;
 }
 
 .main .security_solution .security_solution_outer .security_solution_inner .solution_region .region_desc .sloution_service{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 95%;
+    width: 90%;
     justify-content: space-around;
 }
 
@@ -4398,6 +4400,7 @@ body{
     font-size: 20px;
     font-weight: 500;
     color: #b8b8b8;
+    line-height: 25px;
 }
 
 .main .partnership_process .partnership_process_outer .partnership_process_inner .process_region .process_overview .overview_image{
@@ -5068,6 +5071,7 @@ body{
     margin-right: 0px;
     margin-left: 10px;
     gap: 5px;
+    margin-bottom: 25px;
 }
 }
 /* footer的css樣式設置 結束*/

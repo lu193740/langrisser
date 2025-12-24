@@ -1967,7 +1967,7 @@ body{
 }
 
 .main .market_plan_outer .market_plan_inner .market_plan_region .full_service .service_intro .all_service_item .service_outer .item_msg .case_card .card_info .card_button .button_two{
-    width: 100%;
+    /* width: 100%;
     max-width: 96px;
     height: 40px;
     background-color: #ffffff;
@@ -1975,7 +1975,18 @@ body{
     align-content: center;
     text-align: center;
     display: grid;
+    transition: all 0.6s ease; */
+    width: 100%;
+    max-width: 96px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    /* 改用 flex */
+    display: flex; 
+    justify-content: center; /* 水平置中 */
+    align-items: center;     /* 垂直置中 */
     transition: all 0.6s ease;
+    overflow: hidden;        /* 確保子元素不超出圓角 */
 }
 
 .main .market_plan_outer .market_plan_inner .market_plan_region .full_service .service_intro .all_service_item .service_outer .item_msg .case_card .card_info .card_button .button_two:hover{
@@ -1983,11 +1994,21 @@ body{
 }
 
 .main .market_plan_outer .market_plan_inner .market_plan_region .full_service .service_intro .all_service_item .service_outer .item_msg .case_card .card_info .card_button .button_two a{
-    text-decoration: none;
+    /* text-decoration: none;
     color: #B541F3;
     width: 100%;
     height: 40px;
     align-content: center;
+    transition: all 0.6s ease; */
+    text-decoration: none;
+    color: #B541F3;
+    width: 100%;
+    height: 100%;            /* 改為 100% 填滿父容器 */
+    display: flex;           /* 讓 a 也是 flex 容器 */
+    justify-content: center;
+    align-items: center;
+    /* 關鍵：修正 iOS 文字偏移 */
+    line-height: 1;          
     transition: all 0.6s ease;
 }
 

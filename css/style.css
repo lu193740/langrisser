@@ -1480,6 +1480,21 @@ body{
     width: 100%;
 }
 
+@media(max-width:576px){
+    .main .world_map .world_map_outer .world_map_inner .map_region .under_block .country_flag .logo_image a{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+}
+    .main .world_map .world_map_outer .world_map_inner .map_region .under_block .country_flag .logo_image img{
+    width: 70%;
+}
+}
+
 /* RWD樣式 */
 @media(max-width:576px){
 

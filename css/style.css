@@ -1346,7 +1346,7 @@ body{
 .main .world_map .world_map_outer .world_map_inner .map_region .under_block .desc_block {
     width: 90%;
     margin-bottom: 15px;
-    margin-top: 6%;
+    margin-top: 4%;
     margin-left: 6%;
     /* border: 1px solid red; */
 }
@@ -1418,7 +1418,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 4%;
     justify-content: center;
     gap: 10px;
 }

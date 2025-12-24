@@ -2002,7 +2002,7 @@ body{
 
 /* 服務資訊輪播區塊 CSS設定 開始*/
 .main .market_plan_outer .market_plan_inner .market_plan_region .full_service .service_intro .all_service_item .service_outer .item_msg .slideshow_block{
-    width: 100%;
+    width: 630px;
     height: 570px;
     overflow: hidden;
     position: relative;
